@@ -51,23 +51,10 @@ export default function Home() {
             >
               Mostra Cultural e de Itinerários Formativos 2026
             </h1>
-
-            <p
-              style={{
-                margin: "24px 0 0",
-                maxWidth: 760,
-                color: "#111827",
-                fontSize: 22,
-                lineHeight: 1.45,
-                fontWeight: 500,
-              }}
-            >
-              Socioecologia e Resiliência: como a Arte e a Ciência podem ajudar
-              a moldar um amanhã sustentável.
-            </p>
           </div>
 
           <div
+            className="hidden sm:block"
             style={{
               background: "white",
               borderRadius: 20,
@@ -122,7 +109,8 @@ export default function Home() {
                 fontWeight: 800,
               }}
             >
-              Conhecer para transformar. Agir para preservar.
+              Socioecologia e Resiliência: como a Arte e a Ciência podem ajudar
+              a moldar um amanhã sustentável.
             </h2>
 
             <p
