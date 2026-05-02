@@ -18,6 +18,16 @@ body {
   font-family: var(--font-geist-sans), Arial, sans-serif;
 }
 
+/* Justified text for all paragraph content */
+p, li {
+  text-align: justify;
+}
+
+/* Headings and labels stay left-aligned */
+h1, h2, h3, h4, h5, h6 {
+  text-align: left;
+}
+
 /* Responsive padding utilities used across all pages */
 .page-header {
   padding: 20px 16px;
