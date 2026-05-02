@@ -77,7 +77,7 @@ export default async function EditarItinerarioPage({ params }: Props) {
 
         <div>
           <label className="mb-1 block font-semibold">
-            Descrição do Projeto na Mostra Cultural 2026
+            Descrição do Projeto na Mostra Cultural e de Itinerários Formativos 2026
           </label>
           <textarea
             name="descricao_mostra"

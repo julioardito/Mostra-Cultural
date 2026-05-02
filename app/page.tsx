@@ -7,7 +7,6 @@ export default function Home() {
         minHeight: "100vh",
         background: "#f7f4ef",
         color: "#172033",
-        fontFamily: "Arial, sans-serif",
       }}
     >
       <header
@@ -50,7 +49,7 @@ export default function Home() {
                 fontWeight: 800,
               }}
             >
-              Mostra Cultural 2026 e de Itinerários Formativos
+              Mostra Cultural e de Itinerários Formativos 2026
             </h1>
 
             <p
@@ -211,7 +210,7 @@ export default function Home() {
 
             <img
               src="/fotos/painel_mostra_cultural_2026.png"
-              alt="Painel da Mostra Cultural 2026"
+              alt="Painel da Mostra Cultural e de Itinerários Formativos 2026"
               style={{
                 width: "100%",
                 display: "block",
@@ -236,6 +235,7 @@ function SegmentCard({
   return (
     <Link
       href={href}
+      className="transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
       style={{
         display: "block",
         textDecoration: "none",

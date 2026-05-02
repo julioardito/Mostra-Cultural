@@ -85,7 +85,7 @@ export default async function EnsinoMedioPage({ searchParams }: PageProps) {
                 textTransform: "uppercase",
               }}
             >
-              Mostra Cultural 2026
+              Mostra Cultural e de Itinerários Formativos 2026
             </p>
 
             <h1
@@ -109,7 +109,7 @@ export default async function EnsinoMedioPage({ searchParams }: PageProps) {
                 color: "#111827",
               }}
             >
-              Itinerários Formativos da Mostra Cultural 2026.
+              Itinerários Formativos da Mostra Cultural e de Itinerários Formativos 2026.
             </p>
           </div>
 

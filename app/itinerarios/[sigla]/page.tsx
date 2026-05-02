@@ -39,7 +39,7 @@ export default async function ItinerarioPage({ params }: Props) {
         >
           <div style={{ maxWidth: 650 }}>
             <Link
-              href="/"
+              href="/segmentos/ensino-medio"
               style={{
                 color: "white",
                 textDecoration: "none",
@@ -51,7 +51,7 @@ export default async function ItinerarioPage({ params }: Props) {
                 marginBottom: 32,
               }}
             >
-              ← Voltar para a Mostra Cultural
+              ← Voltar para Ensino Médio
             </Link>
 
             <p
@@ -97,7 +97,7 @@ export default async function ItinerarioPage({ params }: Props) {
                 margin: 0,
               }}
             >
-              Mostra Cultural 2026 · Socioecologia e Resiliência
+              Mostra Cultural e de Itinerários Formativos 2026 · Socioecologia e Resiliência
             </p>
           </div>
 
@@ -168,7 +168,7 @@ export default async function ItinerarioPage({ params }: Props) {
 
             <p style={{ fontSize: 18, color: "#4b5563", margin: 0 }}>
               Página de organização, comunicação e orientação dos espaços da
-              Mostra Cultural 2026.
+              Mostra Cultural e de Itinerários Formativos 2026.
             </p>
           </div>
 
@@ -198,7 +198,7 @@ export default async function ItinerarioPage({ params }: Props) {
             >
               <p style={labelStyle}>Proposta</p>
               <h2 style={cardTitleStyle}>
-                Descrição do Projeto na Mostra Cultural 2026
+                Descrição do Projeto na Mostra Cultural e de Itinerários Formativos 2026
               </h2>
               <p style={{ fontSize: 18, lineHeight: 1.7, color: "#374151" }}>
                 {itinerario.descricao_mostra || itinerario.descricao}

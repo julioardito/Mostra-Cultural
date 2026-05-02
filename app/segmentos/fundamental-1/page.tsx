@@ -47,7 +47,7 @@ export default function Fundamental1Page() {
                 textTransform: "uppercase",
               }}
             >
-              Mostra Cultural 2026
+              Mostra Cultural e de Itinerários Formativos 2026
             </p>
 
             <h1 style={{ fontSize: 56, margin: "12px 0 0", fontWeight: 800 }}>
