@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f4ef;
+  --foreground: #172033;
 }
 
 @theme inline {
@@ -12,15 +12,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+/* Responsive padding utilities used across all pages */
+.page-header {
+  padding: 20px 16px;
+}
+@media (min-width: 640px) {
+  .page-header {
+    padding: 40px 64px;
+  }
+}
+
+.page-section {
+  padding: 24px 16px;
+}
+@media (min-width: 640px) {
+  .page-section {
+    padding: 44px 64px;
+  }
 }

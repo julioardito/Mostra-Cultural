@@ -2,19 +2,10 @@ import Link from "next/link";
 
 export default function Fundamental1Page() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#f7f4ef",
-        color: "#172033",
-      }}
-    >
+    <main style={{ minHeight: "100vh", background: "#f7f4ef", color: "#172033" }}>
       <header
-        style={{
-          background: "#d8ecf7",
-          borderBottom: "1px solid #d8c7a1",
-          padding: "40px 64px",
-        }}
+        className="page-header"
+        style={{ background: "#d8ecf7", borderBottom: "1px solid #d8c7a1" }}
       >
         <div
           style={{
@@ -23,73 +14,64 @@ export default function Fundamental1Page() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: 32,
+            gap: 24,
           }}
         >
           <div>
-            <Link
-              href="/"
-              style={{
-                color: "#173d5c",
-                fontWeight: 700,
-                textDecoration: "none",
-              }}
-            >
+            <Link href="/" style={{ color: "#173d5c", fontWeight: 700, textDecoration: "none" }}>
               ← Voltar para a página inicial
             </Link>
 
             <p
               style={{
-                marginTop: 32,
+                marginTop: 24,
                 color: "#a6782a",
                 fontWeight: 800,
-                letterSpacing: "0.25em",
+                letterSpacing: "0.22em",
                 textTransform: "uppercase",
+                fontSize: 13,
               }}
             >
               Mostra Cultural e de Itinerários Formativos 2026
             </p>
 
-            <h1 style={{ fontSize: 56, margin: "12px 0 0", fontWeight: 800 }}>
+            <h1
+              className="text-3xl sm:text-5xl"
+              style={{ margin: "10px 0 0", fontWeight: 800, lineHeight: 1.05 }}
+            >
               Ensino Fundamental 1
             </h1>
 
-            <p style={{ fontSize: 21, maxWidth: 780, lineHeight: 1.5 }}>
+            <p
+              className="text-base sm:text-lg"
+              style={{ margin: "12px 0 0", maxWidth: 780, lineHeight: 1.5 }}
+            >
               Espaço dedicado aos projetos do 1º ao 5º ano na Mostra Cultural.
             </p>
           </div>
 
           <div
+            className="hidden sm:block"
             style={{
               background: "white",
               borderRadius: 20,
               padding: 14,
               boxShadow: "0 10px 24px rgba(0,0,0,0.12)",
+              flexShrink: 0,
             }}
           >
             <img
               src="/logo-benjamin.png"
               alt="Logo do Colégio Benjamin Constant"
-              style={{ width: 220, height: "auto", display: "block" }}
+              style={{ width: 200, height: "auto", display: "block" }}
             />
           </div>
         </div>
       </header>
 
-      <section
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "48px 32px",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-            gap: 24,
-          }}
-        >
+      <section className="page-section" style={{ maxWidth: 1200, margin: "0 auto" }}>
+        {/* 2 cols mobile, 3 cols desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6">
           <AnoCard href="/segmentos/fundamental-1/1-ano" titulo="1º Ano" />
           <AnoCard href="/segmentos/fundamental-1/2-ano" titulo="2º Ano" />
           <AnoCard href="/segmentos/fundamental-1/3-ano" titulo="3º Ano" />
@@ -102,8 +84,8 @@ export default function Fundamental1Page() {
               display: "block",
               background: "#173d5c",
               color: "white",
-              borderRadius: 28,
-              padding: 30,
+              borderRadius: 22,
+              padding: "18px 16px",
               textDecoration: "none",
               boxShadow: "0 10px 24px rgba(0,0,0,0.14)",
             }}
@@ -113,19 +95,17 @@ export default function Fundamental1Page() {
                 margin: 0,
                 color: "#f4d28c",
                 fontWeight: 800,
-                letterSpacing: "0.2em",
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                fontSize: 13,
+                fontSize: 11,
               }}
             >
               IA Pedagógica
             </p>
-
-            <h2 style={{ margin: "16px 0 0", fontSize: 30 }}>
+            <h2 className="text-lg sm:text-2xl" style={{ margin: "10px 0 0", fontWeight: 800 }}>
               Desenvolvedor de Projetos
             </h2>
-
-            <p style={{ marginTop: 14, lineHeight: 1.5 }}>
+            <p className="hidden sm:block" style={{ marginTop: 10, lineHeight: 1.5, fontSize: 15 }}>
               Assistente para criar propostas pedagógicas da Mostra Cultural.
             </p>
           </Link>
@@ -144,8 +124,8 @@ function AnoCard({ href, titulo }: { href: string; titulo: string }) {
         background: "white",
         color: "#172033",
         border: "1px solid #d8c7a1",
-        borderRadius: 28,
-        padding: 30,
+        borderRadius: 22,
+        padding: "18px 16px",
         textDecoration: "none",
         boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
       }}
@@ -155,15 +135,16 @@ function AnoCard({ href, titulo }: { href: string; titulo: string }) {
           margin: 0,
           color: "#a6782a",
           fontWeight: 800,
-          letterSpacing: "0.18em",
+          letterSpacing: "0.15em",
           textTransform: "uppercase",
-          fontSize: 13,
+          fontSize: 11,
         }}
       >
         Ano escolar
       </p>
-
-      <h2 style={{ margin: "16px 0 0", fontSize: 34 }}>{titulo}</h2>
+      <h2 className="text-2xl sm:text-3xl" style={{ margin: "10px 0 0", fontWeight: 800 }}>
+        {titulo}
+      </h2>
     </Link>
   );
 }
