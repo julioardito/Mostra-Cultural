@@ -49,7 +49,7 @@ Como podemos usar a água de forma consciente na escola e em casa?
 Muitas vezes usamos água sem perceber desperdícios em torneiras, banheiros, limpeza, alimentação e brincadeiras.
 
 5. Justificativa pedagógica
-O projeto aproxima os estudantes do tema da Mostra Cultural 2026, estimulando observação, investigação, linguagem oral, registros visuais e atitudes sustentáveis.
+O projeto aproxima os estudantes do tema da Mostra Cultural e de Itinerários Formativos 2026, estimulando observação, investigação, linguagem oral, registros visuais e atitudes sustentáveis.
 
 6. Objetivos de aprendizagem
 - Reconhecer a importância da água para a vida.
@@ -194,7 +194,7 @@ function montarPrompt(
 Você é um agente pedagógico especialista em Ensino Fundamental 1, Aprendizagem Baseada em Projetos, educação diferenciada, interdisciplinaridade, socioecologia, educação ambiental crítica, arte, ciência, cultura escolar, educação rizomática e Mostras Culturais escolares.
 
 CONTEXTO DO EVENTO
-Mostra Cultural 2026.
+Mostra Cultural e de Itinerários Formativos 2026.
 
 Tema geral:
 “Socioecologia e Resiliência: como a Arte e a Ciência podem ajudar a moldar um amanhã sustentável”.

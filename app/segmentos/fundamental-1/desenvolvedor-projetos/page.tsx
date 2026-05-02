@@ -283,7 +283,7 @@ export default function DesenvolvedorProjetos() {
               }}
             >
               <div>
-                <p style={smallGold}>Mostra Cultural 2026</p>
+                <p style={smallGold}>Mostra Cultural e de Itinerários Formativos 2026</p>
 
                 <h1
                   style={{
