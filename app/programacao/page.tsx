@@ -83,7 +83,7 @@ const EVENTOS: Evento[] = [
     espaco: "Pátio / Refeitório",
     segmento: "EF1",
     turma: "2º Ano",
-    responsavel: "Profa. Carla Mota",
+    responsavel: "Profa. Carla",
   },
   {
     id: "ef1c",
@@ -93,7 +93,7 @@ const EVENTOS: Evento[] = [
     espaco: "Salas de Aula",
     segmento: "EF1",
     turma: "3º Ano",
-    responsavel: "Profa. Fernanda Souza",
+    responsavel: "Profa. Fernanda",
   },
   {
     id: "ef1d",
@@ -103,7 +103,7 @@ const EVENTOS: Evento[] = [
     espaco: "Auditório",
     segmento: "EF1",
     turma: "4º Ano",
-    responsavel: "Prof. Roberto Dias",
+    responsavel: "Prof. Roberto",
   },
   {
     id: "ef1e",
@@ -113,7 +113,7 @@ const EVENTOS: Evento[] = [
     espaco: "Corredor Principal",
     segmento: "EF1",
     turma: "5º Ano",
-    responsavel: "Profa. Juliana Reis",
+    responsavel: "Profa. Juliana",
   },
 
   // — EF2 —
@@ -125,7 +125,7 @@ const EVENTOS: Evento[] = [
     espaco: "Salas de Aula",
     segmento: "EF2",
     turma: "6º Ano",
-    responsavel: "Profa. Mariana Braga",
+    responsavel: "Profa. Mariana",
   },
   {
     id: "ef2b",
@@ -135,7 +135,7 @@ const EVENTOS: Evento[] = [
     espaco: "Corredor Principal",
     segmento: "EF2",
     turma: "7º Ano",
-    responsavel: "Prof. André Faria",
+    responsavel: "Prof. André",
   },
   {
     id: "ef2c",
@@ -145,7 +145,7 @@ const EVENTOS: Evento[] = [
     espaco: "Auditório",
     segmento: "EF2",
     turma: "8º Ano",
-    responsavel: "Profa. Sílvia Torres",
+    responsavel: "Profa. Sílvia",
   },
   {
     id: "ef2d",
@@ -155,7 +155,7 @@ const EVENTOS: Evento[] = [
     espaco: "Auditório",
     segmento: "EF2",
     turma: "9º Ano",
-    responsavel: "Prof. Marcos Alves",
+    responsavel: "Prof. Marcos",
   },
 
   // — Ensino Médio —
@@ -188,7 +188,7 @@ const EVENTOS: Evento[] = [
     espaco: "Corredor Principal",
     segmento: "EM",
     turma: "CS1",
-    responsavel: "Profa. Beatriz Nunes",
+    responsavel: "Profa. Beatriz",
   },
   {
     id: "cs2",
@@ -198,7 +198,7 @@ const EVENTOS: Evento[] = [
     espaco: "Salas de Aula",
     segmento: "EM",
     turma: "CS2",
-    responsavel: "Prof. Henrique Costa",
+    responsavel: "Prof. Henrique",
   },
   {
     id: "ema1",
@@ -208,7 +208,7 @@ const EVENTOS: Evento[] = [
     espaco: "Quadra Poliesportiva",
     segmento: "EM",
     turma: "EMA1",
-    responsavel: "Profa. Renata Pires",
+    responsavel: "Profa. Renata",
   },
 
   // — Almoço —
@@ -709,11 +709,11 @@ export default function ProgramacaoPage() {
               Programação preliminar
             </p>
             <p style={{ margin: "4px 0 0", color: "#6b4e16", fontSize: 15 }}>
-              Os dados abaixo são exemplos. Substitua o array{" "}
+              Os dados abaixo são APENAS exemplos (A programação ainda não foi feita).
               <code style={{ background: "#f3e8d0", padding: "1px 6px", borderRadius: 4, fontSize: 13 }}>
                 EVENTOS
               </code>{" "}
-              no topo do arquivo com os dados reais quando a programação for confirmada.
+              
             </p>
           </div>
         </div>
