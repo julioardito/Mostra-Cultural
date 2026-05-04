@@ -49,7 +49,7 @@ const SLOTS = [
 ];
 
 // ─── Dados de exemplo ─────────────────────────────────────────────────────────
-// Substitua este array pelos dados reais quando a programação estiver confirmada.
+// 
 
 const EVENTOS: Evento[] = [
   // — Abertura —
