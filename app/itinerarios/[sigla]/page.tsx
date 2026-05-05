@@ -103,6 +103,29 @@ export default async function ItinerarioPage({ params }: Props) {
             />
           </div>
         </div>
+
+        {/* Kanban shortcut — only for ECC3 for now */}
+        {sigla === "ECC3" && (
+          <div style={{ marginTop: 20 }}>
+            <Link
+              href={`/itinerarios/${sigla}/kanban`}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "#173d5c",
+                color: "white",
+                borderRadius: 999,
+                padding: "10px 22px",
+                textDecoration: "none",
+                fontWeight: 800,
+                fontSize: 14,
+              }}
+            >
+              📋 Quadro Kanban
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* Content */}
