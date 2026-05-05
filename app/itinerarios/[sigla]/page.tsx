@@ -21,9 +21,9 @@ export default async function ItinerarioPage({ params }: Props) {
   return (
     <main style={{ minHeight: "100vh", background: "#f7f4ef", color: "#172033" }}>
       {/* Dark header */}
-      <section
+      <header
         className="page-header"
-        style={{ background: "#1f4e73", color: "white" }}
+        style={{ background: "#d8ecf7", borderBottom: "1px solid #d8c7a1" }}
       >
         <div
           style={{
@@ -39,14 +39,9 @@ export default async function ItinerarioPage({ params }: Props) {
             <Link
               href="/segmentos/ensino-medio"
               style={{
-                color: "white",
+                color: "#173d5c",
                 textDecoration: "none",
-                border: "1px solid rgba(255,255,255,0.45)",
-                borderRadius: 999,
-                padding: "7px 14px",
-                fontSize: 14,
-                display: "inline-block",
-                marginBottom: 20,
+                fontWeight: 700,
               }}
             >
               ← Voltar para Ensino Médio
@@ -54,11 +49,12 @@ export default async function ItinerarioPage({ params }: Props) {
 
             <p
               style={{
-                color: "#f4d28c",
-                fontWeight: 700,
+                color: "#a6782a",
+                fontWeight: 800,
                 letterSpacing: "0.25em",
                 fontSize: 13,
-                marginBottom: 10,
+                margin: "24px 0 10px",
+                textTransform: "uppercase",
               }}
             >
               {itinerario.sigla}
@@ -66,7 +62,7 @@ export default async function ItinerarioPage({ params }: Props) {
 
             <h1
               className="text-2xl sm:text-5xl"
-              style={{ color: "white", lineHeight: 1.08, fontWeight: 800, margin: 0 }}
+              style={{ color: "#111827", lineHeight: 1.08, fontWeight: 800, margin: 0 }}
             >
               {itinerario.nome}
             </h1>
@@ -75,7 +71,7 @@ export default async function ItinerarioPage({ params }: Props) {
               style={{
                 width: 100,
                 height: 4,
-                background: "#f4d28c",
+                background: itinerario.cor_hex || "#173d5c",
                 borderRadius: 999,
                 marginTop: 18,
                 marginBottom: 18,
@@ -84,34 +80,30 @@ export default async function ItinerarioPage({ params }: Props) {
 
             <p
               className="text-sm sm:text-lg"
-              style={{ color: "#e8eef5", lineHeight: 1.5, margin: 0 }}
+              style={{ color: "#4b5563", lineHeight: 1.5, margin: 0 }}
             >
               Mostra Cultural e de Itinerários Formativos 2026 · Socioecologia e Resiliência
             </p>
           </div>
 
           <div
-            className="hidden sm:flex"
+            className="hidden sm:block"
             style={{
               background: "white",
               borderRadius: 18,
-              padding: 16,
-              boxShadow: "0 12px 30px rgba(0,0,0,0.18)",
-              width: 210,
-              height: 100,
-              alignItems: "center",
-              justifyContent: "center",
+              padding: 14,
+              boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
               flexShrink: 0,
             }}
           >
             <img
               src="/logo-benjamin.png"
               alt="Logo do Colégio Benjamin Constant"
-              style={{ maxWidth: 180, maxHeight: 70, width: "auto", height: "auto", display: "block", objectFit: "contain" }}
+              style={{ width: 200, height: "auto", display: "block" }}
             />
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Content */}
       <section className="page-section">

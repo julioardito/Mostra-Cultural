@@ -118,6 +118,31 @@ export default function Fundamental2Page() {
           </h2>
         </div>
 
+        {/* Card IA — largura total */}
+        <Link
+          href="/segmentos/fundamental-2/desenvolvedor-projetos"
+          style={{
+            display: "block",
+            background: "#173d5c",
+            color: "white",
+            borderRadius: 24,
+            padding: "22px 26px",
+            textDecoration: "none",
+            boxShadow: "0 10px 24px rgba(0,0,0,0.14)",
+            marginBottom: 24,
+          }}
+        >
+          <p style={{ margin: 0, color: "#f4d28c", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", fontSize: 12 }}>
+            IA Pedagógica
+          </p>
+          <h2 style={{ margin: "12px 0 0", fontSize: 26, fontWeight: 800, color: "white" }}>
+            Desenvolvedor de Projetos
+          </h2>
+          <p style={{ marginTop: 10, lineHeight: 1.5, color: "#d8ecf7", fontSize: 15 }}>
+            Assistente inteligente para criar propostas pedagógicas, planos de aula e roteiros para a Mostra Cultural.
+          </p>
+        </Link>
+
         {/* 1 col mobile, 2 cols desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {anos.map((ano) => (
