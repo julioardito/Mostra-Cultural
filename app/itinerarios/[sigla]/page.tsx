@@ -104,46 +104,44 @@ export default async function ItinerarioPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Área do Aluno + Kanban — only for ECC3 for now */}
-        {sigla === "ECC3" && (
-          <div style={{ marginTop: 20, display: "flex", flexWrap: "wrap", gap: 12 }}>
-            <Link
-              href={`/itinerarios/${sigla}/alunos`}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "#a6782a",
-                color: "white",
-                borderRadius: 999,
-                padding: "10px 22px",
-                textDecoration: "none",
-                fontWeight: 800,
-                fontSize: 14,
-              }}
-            >
-              🎒 Área do Aluno
-            </Link>
-            <Link
-              href={`/itinerarios/${sigla}/kanban`}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "white",
-                color: "#173d5c",
-                border: "1.5px solid #173d5c",
-                borderRadius: 999,
-                padding: "10px 22px",
-                textDecoration: "none",
-                fontWeight: 800,
-                fontSize: 14,
-              }}
-            >
-              📋 Quadro Kanban
-            </Link>
-          </div>
-        )}
+        {/* Área do Aluno + Kanban — todos os itinerários */}
+        <div style={{ marginTop: 20, display: "flex", flexWrap: "wrap", gap: 12 }}>
+          <Link
+            href={`/itinerarios/${sigla}/alunos`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "#a6782a",
+              color: "white",
+              borderRadius: 999,
+              padding: "10px 22px",
+              textDecoration: "none",
+              fontWeight: 800,
+              fontSize: 14,
+            }}
+          >
+            🎒 Área do Aluno
+          </Link>
+          <Link
+            href={`/itinerarios/${sigla}/kanban`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "white",
+              color: "#173d5c",
+              border: "1.5px solid #173d5c",
+              borderRadius: 999,
+              padding: "10px 22px",
+              textDecoration: "none",
+              fontWeight: 800,
+              fontSize: 14,
+            }}
+          >
+            📋 Quadro Kanban
+          </Link>
+        </div>
       </header>
 
       {/* Content */}
