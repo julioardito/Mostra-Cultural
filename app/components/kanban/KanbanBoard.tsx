@@ -223,7 +223,7 @@ function ColunaDroppavel({
       >
         <div
           style={{
-            height: 4,
+            height: 8,
             borderRadius: 999,
             background: coluna.cor,
             marginBottom: 10,
