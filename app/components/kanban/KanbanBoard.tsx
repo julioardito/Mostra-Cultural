@@ -328,8 +328,25 @@ export default function KanbanBoard({ sigla }: { sigla: string }) {
       setLoading(false);
       return;
     }
+
+    // Auto-cria as 4 colunas padrão se o quadro ainda não tiver nenhuma
     if (!cols?.length) {
-      setColunas([]);
+      const padrao = [
+        { itinerario_sigla: sigla, nome: "A Fazer",      posicao: 0, cor: "#6b7280" },
+        { itinerario_sigla: sigla, nome: "Em Andamento", posicao: 1, cor: "#2563eb" },
+        { itinerario_sigla: sigla, nome: "Revisão",      posicao: 2, cor: "#d97706" },
+        { itinerario_sigla: sigla, nome: "Concluído",    posicao: 3, cor: "#059669" },
+      ];
+      const { data: novasCols, error: e2 } = await supabase
+        .from("kanban_colunas")
+        .insert(padrao)
+        .select();
+      if (e2 || !novasCols) {
+        setErro(e2?.message ?? "Erro ao criar colunas.");
+        setLoading(false);
+        return;
+      }
+      setColunas(novasCols);
       setCards([]);
       setLoading(false);
       return;
