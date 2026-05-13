@@ -17,7 +17,7 @@ export default function Home() {
             gap: 24,
           }}
         >
-          <div style={{ maxWidth: 820 }}>
+          <div style={{ maxWidth: 820, textAlign: "center", margin: "0 auto" }}>
             <p
               style={{
                 margin: 0,
@@ -26,6 +26,7 @@ export default function Home() {
                 fontWeight: 800,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
+                textAlign: "center",
               }}
             >
               Colégio Benjamin Constant
@@ -33,7 +34,7 @@ export default function Home() {
 
             <h1
               className="text-3xl sm:text-5xl"
-              style={{ margin: "10px 0 0", lineHeight: 1.05, color: "#111827", fontWeight: 800 }}
+              style={{ margin: "10px 0 0", lineHeight: 1.05, color: "#111827", fontWeight: 800, textAlign: "center" }}
             >
               Mostra Cultural e de Itinerários Formativos 2026
             </h1>
@@ -66,9 +67,10 @@ export default function Home() {
               background: "white",
               border: "1px solid #d8c7a1",
               borderRadius: 24,
-              padding: "24px",
+              padding: "28px",
               boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
               marginBottom: 24,
+              textAlign: "center",
             }}
           >
             <p
@@ -79,22 +81,23 @@ export default function Home() {
                 fontWeight: 800,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
+                textAlign: "center",
               }}
             >
-              Bem-vindos
+              Tema deste ano
             </p>
 
             <h2
-              className="text-2xl sm:text-4xl"
-              style={{ margin: "12px 0 0", lineHeight: 1.2, fontWeight: 800 }}
+              className="text-xl sm:text-2xl"
+              style={{ margin: "14px auto 0", lineHeight: 1.3, fontWeight: 800, maxWidth: 820, textAlign: "center" }}
             >
               Socioecologia e Resiliência: como a Arte e a Ciência podem ajudar
               a moldar um amanhã sustentável.
             </h2>
 
             <p
-              className="text-base sm:text-xl"
-              style={{ margin: "14px 0 0", maxWidth: 980, lineHeight: 1.55, color: "#4b5563" }}
+              className="text-base sm:text-lg"
+              style={{ margin: "16px auto 0", maxWidth: 880, lineHeight: 1.55, color: "#4b5563", textAlign: "center" }}
             >
               A Mostra Cultural reúne projetos, pesquisas, experiências e produções
               dos estudantes, promovendo diálogo entre ciência, arte, cultura,
@@ -102,8 +105,13 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Segment cards — 1 col mobile, 3 cols desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
+          {/* Segment cards — 1 col mobile, 2 cols desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+            <SegmentCard
+              href="/segmentos/educacao-basica"
+              title="Educação Básica"
+              subtitle="Educação Infantil"
+            />
             <SegmentCard
               href="/segmentos/fundamental-1"
               title="Ensino Fundamental 1"
@@ -152,7 +160,7 @@ export default function Home() {
               boxShadow: "0 14px 34px rgba(0,0,0,0.12)",
             }}
           >
-            <div style={{ background: "#173d5c", color: "white", padding: "20px 28px" }}>
+            <div style={{ background: "#173d5c", color: "white", padding: "20px 28px", textAlign: "center" }}>
               <p
                 style={{
                   margin: 0,
@@ -161,13 +169,14 @@ export default function Home() {
                   fontWeight: 800,
                   letterSpacing: "0.24em",
                   textTransform: "uppercase",
+                  textAlign: "center",
                 }}
               >
                 Registros da Mostra
               </p>
               <h2
                 className="text-xl sm:text-3xl"
-                style={{ margin: "8px 0 0", lineHeight: 1.2, fontWeight: 800 }}
+                style={{ margin: "8px 0 0", lineHeight: 1.2, fontWeight: 800, textAlign: "center" }}
               >
                 Memórias, projetos e protagonismo estudantil
               </h2>
@@ -204,8 +213,9 @@ function SegmentCard({
         background: "white",
         border: "1px solid #d8c7a1",
         borderRadius: 24,
-        padding: "20px 22px",
+        padding: "22px 24px",
         boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
+        textAlign: "center",
       }}
     >
       <p
@@ -216,6 +226,7 @@ function SegmentCard({
           fontWeight: 800,
           letterSpacing: "0.22em",
           textTransform: "uppercase",
+          textAlign: "center",
         }}
       >
         Segmento
@@ -223,12 +234,12 @@ function SegmentCard({
 
       <h2
         className="text-xl sm:text-2xl"
-        style={{ margin: "10px 0 0", lineHeight: 1.15, fontWeight: 800 }}
+        style={{ margin: "10px 0 0", lineHeight: 1.15, fontWeight: 800, textAlign: "center" }}
       >
         {title}
       </h2>
 
-      <p style={{ margin: "8px 0 0", fontSize: 15, color: "#4b5563" }}>
+      <p style={{ margin: "8px 0 0", fontSize: 15, color: "#4b5563", textAlign: "center" }}>
         {subtitle}
       </p>
     </Link>
