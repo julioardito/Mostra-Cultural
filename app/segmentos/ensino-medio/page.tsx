@@ -295,21 +295,6 @@ export default async function EnsinoMedioPage({ searchParams }: PageProps) {
                   >
                     Ver projetos
                   </Link>
-
-                  <Link
-                    href={`/dashboard/itinerarios/${item.id}/editar`}
-                    style={{
-                      border: "1px solid #173d5c",
-                      color: "#173d5c",
-                      borderRadius: 999,
-                      padding: "9px 16px",
-                      textDecoration: "none",
-                      fontWeight: 800,
-                      fontSize: 13,
-                    }}
-                  >
-                    Editar
-                  </Link>
                 </div>
               </div>
 

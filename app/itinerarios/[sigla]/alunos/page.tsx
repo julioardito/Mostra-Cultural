@@ -12,6 +12,13 @@ type Projeto = {
   link_portfolio: string;
 };
 
+type Itinerario = {
+  professores_responsaveis: string;
+  localizacao: string;
+  descricao_mostra: string;
+  mapa_url: string;
+};
+
 const SESSAO_KEY = (sigla: string) => `aluno_auth_${sigla}`;
 
 export default function AreaAlunoPage({
@@ -36,7 +43,18 @@ export default function AreaAlunoPage({
   const [projetoOriginal, setProjetoOriginal] = useState<Projeto | null>(null);
   const [salvando, setSalvando] = useState(false);
   const [mensagemSalvo, setMensagemSalvo] = useState("");
-  const [abaAtiva, setAbaAtiva] = useState<"projeto" | "kanban">("projeto");
+  const [abaAtiva, setAbaAtiva] = useState<"projeto" | "kanban" | "itinerario">("projeto");
+
+  // Edição do itinerário
+  const [itin, setItin] = useState<Itinerario>({
+    professores_responsaveis: "",
+    localizacao: "",
+    descricao_mostra: "",
+    mapa_url: "",
+  });
+  const [itinOriginal, setItinOriginal] = useState<Itinerario | null>(null);
+  const [salvandoItin, setSalvandoItin] = useState(false);
+  const [mensagemItin, setMensagemItin] = useState("");
 
   // ── Verifica sessão ao montar ──────────────────────────────
   useEffect(() => {
@@ -44,6 +62,7 @@ export default function AreaAlunoPage({
     if (sessao === "ok") {
       setAutenticado(true);
       carregarProjeto();
+      carregarItinerario();
     }
     setIniciando(false);
   }, [sigla]);
@@ -68,6 +87,7 @@ export default function AreaAlunoPage({
         sessionStorage.setItem(SESSAO_KEY(sigla), "ok");
         setAutenticado(true);
         carregarProjeto();
+        carregarItinerario();
       }
     } catch {
       setErroLogin("Erro de conexão. Tente novamente.");
@@ -130,6 +150,50 @@ export default function AreaAlunoPage({
       projeto.descricao !== projetoOriginal.descricao ||
       projeto.integrantes !== projetoOriginal.integrantes ||
       projeto.link_portfolio !== projetoOriginal.link_portfolio);
+
+  // ── Itinerário editável ────────────────────────────────────
+  async function carregarItinerario() {
+    const { data } = await supabase
+      .from("itinerarios")
+      .select("professores_responsaveis, localizacao, descricao_mostra, mapa_url")
+      .eq("sigla", sigla)
+      .single();
+    if (data) {
+      const i: Itinerario = {
+        professores_responsaveis: data.professores_responsaveis || "",
+        localizacao: data.localizacao || "",
+        descricao_mostra: data.descricao_mostra || "",
+        mapa_url: data.mapa_url || "",
+      };
+      setItin(i);
+      setItinOriginal(i);
+    }
+  }
+
+  async function salvarItinerario(e: React.FormEvent) {
+    e.preventDefault();
+    setSalvandoItin(true);
+    setMensagemItin("");
+    const { error } = await supabase
+      .from("itinerarios")
+      .update(itin)
+      .eq("sigla", sigla);
+    if (!error) {
+      setItinOriginal(itin);
+      setMensagemItin("Salvo com sucesso! ✓");
+      setTimeout(() => setMensagemItin(""), 3000);
+    } else {
+      setMensagemItin("Erro ao salvar. Tente novamente.");
+    }
+    setSalvandoItin(false);
+  }
+
+  const itinAlterado =
+    itinOriginal &&
+    (itin.professores_responsaveis !== itinOriginal.professores_responsaveis ||
+      itin.localizacao !== itinOriginal.localizacao ||
+      itin.descricao_mostra !== itinOriginal.descricao_mostra ||
+      itin.mapa_url !== itinOriginal.mapa_url);
 
   // ── Render: aguardando checagem de sessão ─────────────────
   if (iniciando) {
@@ -323,8 +387,8 @@ export default function AreaAlunoPage({
         </div>
 
         {/* Abas */}
-        <div style={{ maxWidth: 1800, margin: "20px auto 0", display: "flex", gap: 4 }}>
-          {(["projeto", "kanban"] as const).map((aba) => (
+        <div style={{ maxWidth: 1800, margin: "20px auto 0", display: "flex", gap: 4, flexWrap: "wrap" }}>
+          {(["projeto", "kanban", "itinerario"] as const).map((aba) => (
             <button
               key={aba}
               onClick={() => setAbaAtiva(aba)}
@@ -340,7 +404,11 @@ export default function AreaAlunoPage({
                 transition: "all 0.15s",
               }}
             >
-              {aba === "projeto" ? "📝 Nosso Projeto" : "📋 Quadro de Tarefas"}
+              {aba === "projeto"
+                ? "📝 Nosso Projeto"
+                : aba === "kanban"
+                ? "📋 Quadro de Tarefas"
+                : "✏️ Editar Itinerário"}
             </button>
           ))}
         </div>
@@ -460,6 +528,119 @@ export default function AreaAlunoPage({
         <div style={{ padding: "24px 16px", maxWidth: 1800, margin: "0 auto" }}>
           <KanbanBoard sigla={sigla} />
         </div>
+      )}
+
+      {/* Aba: Editar Itinerário */}
+      {abaAtiva === "itinerario" && (
+        <section style={{ padding: "28px 16px", maxWidth: 860, margin: "0 auto" }}>
+          <div
+            style={{
+              background: "white",
+              border: "1px solid #d8c7a1",
+              borderRadius: 24,
+              padding: "28px 28px 24px",
+              boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+            }}
+          >
+            <p
+              style={{
+                margin: "0 0 4px",
+                color: "#a6782a",
+                fontSize: 12,
+                fontWeight: 800,
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+              }}
+            >
+              Informações públicas do {sigla}
+            </p>
+            <h2 style={{ margin: "0 0 8px", fontSize: 22, fontWeight: 800, color: "#172033" }}>
+              Editar dados do itinerário
+            </h2>
+            <p style={{ margin: "0 0 24px", fontSize: 14, color: "#6b7280", lineHeight: 1.5 }}>
+              Estas informações aparecem na página pública do itinerário. Alterações ficam visíveis imediatamente.
+            </p>
+
+            <form onSubmit={salvarItinerario} style={{ display: "grid", gap: 18 }}>
+              <div>
+                <label style={lbl}>Professores responsáveis</label>
+                <input
+                  value={itin.professores_responsaveis}
+                  onChange={(e) => setItin({ ...itin, professores_responsaveis: e.target.value })}
+                  placeholder="Ex.: Prof. João, Profª Maria"
+                  style={inp}
+                />
+              </div>
+
+              <div>
+                <label style={lbl}>Localização</label>
+                <input
+                  value={itin.localizacao}
+                  onChange={(e) => setItin({ ...itin, localizacao: e.target.value })}
+                  placeholder="Ex.: Quadra Azul"
+                  style={inp}
+                />
+              </div>
+
+              <div>
+                <label style={lbl}>Descrição do projeto na Mostra</label>
+                <textarea
+                  value={itin.descricao_mostra}
+                  onChange={(e) => setItin({ ...itin, descricao_mostra: e.target.value })}
+                  rows={6}
+                  placeholder="Descreva como o projeto será apresentado, o que os visitantes verão, etc."
+                  style={{ ...inp, resize: "vertical" }}
+                />
+              </div>
+
+              <div>
+                <label style={lbl}>URL da imagem do mapa</label>
+                <input
+                  value={itin.mapa_url}
+                  onChange={(e) => setItin({ ...itin, mapa_url: e.target.value })}
+                  placeholder="Ex.: /EMA3.png"
+                  style={inp}
+                />
+                <p style={{ margin: "6px 0 0", fontSize: 12, color: "#9ca3af" }}>
+                  Use caminhos como <code>/EMA1.png</code>. As imagens devem estar na pasta <code>public/</code>.
+                </p>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", paddingTop: 4 }}>
+                <button
+                  type="submit"
+                  disabled={salvandoItin || !itinAlterado}
+                  style={{
+                    background: itinAlterado ? "#173d5c" : "#e5e7eb",
+                    color: itinAlterado ? "white" : "#9ca3af",
+                    border: 0,
+                    borderRadius: 999,
+                    padding: "12px 28px",
+                    fontWeight: 800,
+                    fontSize: 15,
+                    cursor: itinAlterado && !salvandoItin ? "pointer" : "default",
+                    transition: "all 0.2s",
+                  }}
+                >
+                  {salvandoItin ? "Salvando..." : "Salvar alterações"}
+                </button>
+
+                {mensagemItin && (
+                  <p
+                    style={{
+                      margin: 0,
+                      fontWeight: 700,
+                      fontSize: 14,
+                      color: mensagemItin.includes("Erro") ? "#dc2626" : "#059669",
+                    }}
+                  >
+                    {mensagemItin}
+                  </p>
+                )}
+              </div>
+            </form>
+          </div>
+        </section>
       )}
     </main>
   );
