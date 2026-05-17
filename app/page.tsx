@@ -109,17 +109,17 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
             <SegmentCard
               href="/segmentos/educacao-basica"
-              title="Educação Básica"
-              subtitle="Educação Infantil"
+              title="Educação Infantil"
+              subtitle="Minimaternal ao pré"
             />
             <SegmentCard
               href="/segmentos/fundamental-1"
-              title="Ensino Fundamental 1"
+              title="Ensino Fundamental (Anos Iniciais)"
               subtitle="1º ao 5º ano"
             />
             <SegmentCard
               href="/segmentos/fundamental-2"
-              title="Ensino Fundamental 2"
+              title="Ensino Fundamental (Anos Finais)"
               subtitle="6º ao 9º ano"
             />
             <SegmentCard

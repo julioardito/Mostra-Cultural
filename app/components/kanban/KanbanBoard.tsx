@@ -91,6 +91,8 @@ function CardItem({
         marginBottom: 8,
         userSelect: "none",
         cursor: "grab",
+        touchAction: "none",
+        WebkitUserSelect: "none",
       }}
       {...attributes}
       {...listeners}
