@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function EducacaoBasicaPage() {
+export default function IBPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f7f4ef", color: "#172033" }}>
       <header
         className="page-header"
-        style={{ background: "#d8ecf7", borderBottom: "1px solid #d8c7a1" }}
+        style={{ background: "#0f766e", borderBottom: "1px solid #0b5a54" }}
       >
         <div
           style={{
@@ -18,32 +18,35 @@ export default function EducacaoBasicaPage() {
           }}
         >
           <div>
-            <Link href="/" style={{ color: "#173d5c", textDecoration: "none", fontWeight: 700 }}>
-              ← Voltar para a página inicial
+            <Link
+              href="/segmentos/ensino-medio"
+              style={{ color: "#9ce8df", textDecoration: "none", fontWeight: 700 }}
+            >
+              ← Voltar para Ensino Médio
             </Link>
             <p
               style={{
                 margin: "24px 0 0",
-                color: "#a6782a",
+                color: "#9ce8df",
                 fontSize: 13,
                 fontWeight: 800,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
               }}
             >
-              Mostra Cultural e de Itinerários Formativos 2026
+              Programa Internacional
             </p>
             <h1
               className="text-3xl sm:text-5xl"
-              style={{ margin: "10px 0 0", lineHeight: 1.05, fontWeight: 800, color: "#111827" }}
+              style={{ margin: "10px 0 0", lineHeight: 1.05, fontWeight: 800, color: "white" }}
             >
-              Educação Infantil
+              IB — International Baccalaureate
             </h1>
             <p
               className="text-base sm:text-lg"
-              style={{ margin: "12px 0 0", maxWidth: 780, lineHeight: 1.5, color: "#111827" }}
+              style={{ margin: "12px 0 0", maxWidth: 780, lineHeight: 1.5, color: "#cdeee9" }}
             >
-              Projetos do Minimaternal ao Pré — Socioecologia e Resiliência.
+              Programa do Diploma na Mostra Cultural e de Itinerários Formativos 2026.
             </p>
           </div>
 
@@ -53,7 +56,7 @@ export default function EducacaoBasicaPage() {
               background: "white",
               borderRadius: 20,
               padding: 14,
-              boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
+              boxShadow: "0 12px 30px rgba(0,0,0,0.2)",
               flexShrink: 0,
             }}
           >
@@ -77,12 +80,13 @@ export default function EducacaoBasicaPage() {
             textAlign: "center",
           }}
         >
-          <span style={{ fontSize: 48 }}>🌱</span>
+          <span style={{ fontSize: 48 }}>🌍</span>
           <h2 style={{ margin: "16px 0 8px", fontSize: 26, fontWeight: 800, color: "#172033" }}>
             Em construção
           </h2>
           <p style={{ margin: "0 auto", maxWidth: 620, fontSize: 16, lineHeight: 1.6, color: "#6b7280" }}>
-            As turmas e projetos da Educação Básica serão divulgados em breve nesta página.
+            As informações sobre o itinerário do International Baccalaureate na
+            Mostra Cultural serão divulgadas em breve nesta página.
           </p>
         </div>
       </section>

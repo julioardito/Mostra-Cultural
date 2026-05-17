@@ -1,33 +1,13 @@
 import Link from "next/link";
 
 const anos = [
-  {
-    titulo: "6º Ano",
-    descricao: "Projetos interdisciplinares das turmas do 6º ano.",
-    cor: "#2563eb",
-    href: "/segmentos/fundamental-2/6-ano",
-  },
-  {
-    titulo: "7º Ano",
-    descricao: "Projetos interdisciplinares das turmas do 7º ano.",
-    cor: "#059669",
-    href: "/segmentos/fundamental-2/7-ano",
-  },
-  {
-    titulo: "8º Ano",
-    descricao: "Projetos interdisciplinares das turmas do 8º ano.",
-    cor: "#d97706",
-    href: "/segmentos/fundamental-2/8-ano",
-  },
-  {
-    titulo: "9º Ano",
-    descricao: "Projetos interdisciplinares das turmas do 9º ano.",
-    cor: "#7c3aed",
-    href: "/segmentos/fundamental-2/9-ano",
-  },
+  { num: "6", titulo: "6º Ano", cor: "#2563eb", turmas: ["A", "B"] },
+  { num: "7", titulo: "7º Ano", cor: "#059669", turmas: ["A", "B", "C"] },
+  { num: "8", titulo: "8º Ano", cor: "#d97706", turmas: ["A", "B", "C", "D"] },
+  { num: "9", titulo: "9º Ano", cor: "#7c3aed", turmas: ["A", "B", "C", "D"] },
 ];
 
-export default function Fundamental2Page() {
+export default function FundamentalAnosFinaisPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f7f4ef", color: "#172033" }}>
       <header
@@ -66,7 +46,7 @@ export default function Fundamental2Page() {
               className="text-3xl sm:text-5xl"
               style={{ margin: "10px 0 0", lineHeight: 1.05, fontWeight: 800, color: "#111827" }}
             >
-              Ensino Fundamental 2
+              Ensino Fundamental (Anos Finais)
             </h1>
 
             <p
@@ -108,12 +88,9 @@ export default function Fundamental2Page() {
               textTransform: "uppercase",
             }}
           >
-            Fundamental 2
+            Ensino Fundamental — Anos Finais
           </p>
-          <h2
-            className="text-2xl sm:text-4xl"
-            style={{ margin: "8px 0 0", fontWeight: 800 }}
-          >
+          <h2 className="text-2xl sm:text-4xl" style={{ margin: "8px 0 0", fontWeight: 800 }}>
             Turmas da Mostra
           </h2>
         </div>
@@ -175,7 +152,7 @@ export default function Fundamental2Page() {
                   textTransform: "uppercase",
                 }}
               >
-                Ensino Fundamental 2
+                Ensino Fundamental — Anos Finais
               </p>
 
               <h3
@@ -185,29 +162,68 @@ export default function Fundamental2Page() {
                 {ano.titulo}
               </h3>
 
-              <p style={{ fontSize: 15, lineHeight: 1.55, color: "#4b5563" }}>
-                {ano.descricao}
+              <p style={{ fontSize: 14, lineHeight: 1.5, color: "#6b7280", margin: "0 0 16px" }}>
+                Selecione a turma para acessar a Área do Aluno.
               </p>
 
-              <div style={{ marginTop: 18 }}>
-                <Link
-                  href={ano.href}
-                  style={{
-                    background: "#173d5c",
-                    color: "white",
-                    borderRadius: 999,
-                    padding: "10px 20px",
-                    textDecoration: "none",
-                    fontWeight: 800,
-                    fontSize: 14,
-                    display: "inline-block",
-                  }}
-                >
-                  Ver projetos
-                </Link>
+              {/* Botões de turma */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                {ano.turmas.map((letra) => (
+                  <Link
+                    key={letra}
+                    href={`/segmentos/fundamental-2/${ano.num}-ano/${letra.toLowerCase()}`}
+                    style={{
+                      background: ano.cor,
+                      color: "white",
+                      borderRadius: 999,
+                      padding: "10px 22px",
+                      textDecoration: "none",
+                      fontWeight: 800,
+                      fontSize: 15,
+                      display: "inline-block",
+                    }}
+                  >
+                    {ano.num}º{letra}
+                  </Link>
+                ))}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mapa */}
+        <div
+          style={{
+            marginTop: 28,
+            background: "white",
+            border: "1px solid #d8c7a1",
+            borderRadius: 24,
+            padding: "24px",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+          }}
+        >
+          <p
+            style={{
+              margin: "0 0 4px",
+              color: "#a6782a",
+              fontSize: 13,
+              fontWeight: 800,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+            }}
+          >
+            Espaço
+          </p>
+          <h2 className="text-2xl sm:text-3xl" style={{ margin: "0 0 20px", fontWeight: 800 }}>
+            Mapa do Ensino Fundamental (Anos Finais)
+          </h2>
+          <div style={{ background: "#f7f4ef", borderRadius: 16, padding: "16px", display: "flex", justifyContent: "center" }}>
+            <img
+              src="/fund2.png"
+              alt="Mapa do espaço do Ensino Fundamental Anos Finais na Mostra Cultural"
+              style={{ width: "100%", maxWidth: 860, height: "auto", borderRadius: 12, border: "1px solid #d8c7a1" }}
+            />
+          </div>
         </div>
       </section>
     </main>

@@ -1,17 +1,17 @@
 import Link from "next/link";
 
-const anosIniciais = [
+const grupo1 = [
   { href: "/segmentos/fundamental-1/1-ano", titulo: "1º Ano", cor: "#2563eb" },
   { href: "/segmentos/fundamental-1/2-ano", titulo: "2º Ano", cor: "#059669" },
 ];
 
-const anosFinais = [
+const grupo2 = [
   { href: "/segmentos/fundamental-1/3-ano", titulo: "3º Ano", cor: "#d97706" },
   { href: "/segmentos/fundamental-1/4-ano", titulo: "4º Ano", cor: "#7c3aed" },
   { href: "/segmentos/fundamental-1/5-ano", titulo: "5º Ano", cor: "#dc2626" },
 ];
 
-export default function Fundamental1Page() {
+export default function FundamentalAnosIniciaisPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f7f4ef", color: "#172033" }}>
       <header
@@ -36,7 +36,7 @@ export default function Fundamental1Page() {
               Mostra Cultural e de Itinerários Formativos 2026
             </p>
             <h1 className="text-3xl sm:text-5xl" style={{ margin: "10px 0 0", fontWeight: 800, lineHeight: 1.05 }}>
-              Ensino Fundamental 1
+              Ensino Fundamental (Anos Iniciais)
             </h1>
             <p className="text-base sm:text-lg" style={{ margin: "12px 0 0", maxWidth: 780, lineHeight: 1.5 }}>
               Projetos do 1º ao 5º ano — Socioecologia e Resiliência.
@@ -62,39 +62,62 @@ export default function Fundamental1Page() {
           </p>
         </Link>
 
-        {/* Anos Iniciais */}
+        {/* 1º e 2º anos */}
         <div style={{ marginBottom: 32 }}>
           <div style={{ marginBottom: 16 }}>
             <p style={{ margin: 0, color: "#a6782a", fontSize: 13, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase" }}>
-              Fundamental 1
+              Ensino Fundamental — Anos Iniciais
             </p>
             <h2 className="text-2xl sm:text-3xl" style={{ margin: "6px 0 0", fontWeight: 800 }}>
-              Anos Iniciais
+              1º e 2º anos
             </h2>
-            <p style={{ margin: "4px 0 0", color: "#6b7280", fontSize: 14 }}>1º e 2º anos</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {anosIniciais.map((ano) => (
-              <AnoCard key={ano.titulo} {...ano} segmento="Ensino Fundamental 1 · Anos Iniciais" />
+            {grupo1.map((ano) => (
+              <AnoCard key={ano.titulo} {...ano} />
             ))}
           </div>
         </div>
 
-        {/* Anos Finais */}
-        <div>
+        {/* 3º, 4º e 5º anos */}
+        <div style={{ marginBottom: 32 }}>
           <div style={{ marginBottom: 16 }}>
             <p style={{ margin: 0, color: "#a6782a", fontSize: 13, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase" }}>
-              Fundamental 1
+              Ensino Fundamental — Anos Iniciais
             </p>
             <h2 className="text-2xl sm:text-3xl" style={{ margin: "6px 0 0", fontWeight: 800 }}>
-              Anos Finais
+              3º, 4º e 5º anos
             </h2>
-            <p style={{ margin: "4px 0 0", color: "#6b7280", fontSize: 14 }}>3º, 4º e 5º anos</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {anosFinais.map((ano) => (
-              <AnoCard key={ano.titulo} {...ano} segmento="Ensino Fundamental 1 · Anos Finais" />
+            {grupo2.map((ano) => (
+              <AnoCard key={ano.titulo} {...ano} />
             ))}
+          </div>
+        </div>
+
+        {/* Mapa */}
+        <div
+          style={{
+            background: "white",
+            border: "1px solid #d8c7a1",
+            borderRadius: 24,
+            padding: "24px",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+          }}
+        >
+          <p style={{ margin: "0 0 4px", color: "#a6782a", fontSize: 13, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase" }}>
+            Espaço
+          </p>
+          <h2 className="text-2xl sm:text-3xl" style={{ margin: "0 0 20px", fontWeight: 800 }}>
+            Mapa do Ensino Fundamental (Anos Iniciais)
+          </h2>
+          <div style={{ background: "#f7f4ef", borderRadius: 16, padding: "16px", display: "flex", justifyContent: "center" }}>
+            <img
+              src="/fund1.png"
+              alt="Mapa do espaço do Ensino Fundamental Anos Iniciais na Mostra Cultural"
+              style={{ width: "100%", maxWidth: 860, height: "auto", borderRadius: 12, border: "1px solid #d8c7a1" }}
+            />
           </div>
         </div>
 
@@ -103,12 +126,12 @@ export default function Fundamental1Page() {
   );
 }
 
-function AnoCard({ href, titulo, cor, segmento }: { href: string; titulo: string; cor: string; segmento: string }) {
+function AnoCard({ href, titulo, cor }: { href: string; titulo: string; cor: string }) {
   return (
     <div style={{ background: "white", border: "1px solid #d8c7a1", borderRadius: 24, padding: "20px 22px", boxShadow: "0 8px 22px rgba(0,0,0,0.06)" }}>
       <div style={{ height: 6, borderRadius: 999, background: cor, marginBottom: 16 }} />
       <p style={{ margin: 0, color: "#a6782a", fontSize: 12, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-        {segmento}
+        Ensino Fundamental — Anos Iniciais
       </p>
       <h3 className="text-3xl sm:text-4xl" style={{ margin: "10px 0 14px", fontWeight: 800, lineHeight: 1.1 }}>
         {titulo}

@@ -301,6 +301,45 @@ export default async function EnsinoMedioPage({ searchParams }: PageProps) {
             </div>
           ))}
         </div>
+
+        {/* Botão IB — retângulo de largura total abaixo dos itinerários */}
+        <Link
+          href="/segmentos/ensino-medio/ib"
+          className="transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
+          style={{
+            display: "block",
+            marginTop: 24,
+            background: "#0f766e",
+            color: "white",
+            borderRadius: 24,
+            padding: "24px 28px",
+            textDecoration: "none",
+            boxShadow: "0 10px 24px rgba(15,118,110,0.28)",
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+              color: "#9ce8df",
+              fontSize: 13,
+              fontWeight: 800,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+            }}
+          >
+            Programa Internacional
+          </p>
+          <h3
+            className="text-2xl sm:text-3xl"
+            style={{ margin: "10px 0 6px", fontWeight: 800, color: "white" }}
+          >
+            IB — International Baccalaureate
+          </h3>
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.5, color: "#cdeee9" }}>
+            Conheça o itinerário do Programa do Diploma na Mostra Cultural e de
+            Itinerários Formativos 2026.
+          </p>
+        </Link>
       </section>
     </main>
   );
