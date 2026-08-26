@@ -381,6 +381,7 @@ function VizLista({ eventos, onSelect, admin, onEdit, onDelete }: { eventos: Eve
 export default function ProgramacaoPage() {
   const [eventos, setEventos] = useState<Evento[]>([]);
   const [carregando, setCarregando] = useState(true);
+  const [erroCarga, setErroCarga] = useState(false);
   const [visao, setVisao] = useState<Visao>("lista");
   const [filtroSeg, setFiltroSeg] = useState<Segmento | "Todos">("Todos");
   const [busca, setBusca] = useState("");
@@ -398,26 +399,33 @@ export default function ProgramacaoPage() {
 
   async function carregar() {
     setCarregando(true);
-    const { data, error } = await supabase
-      .from("programacao_eventos")
-      .select("*")
-      .order("inicio");
-
-    if (error) {
-      console.error("Erro carregando eventos:", error);
-      setCarregando(false);
-      return;
-    }
-
-    // Seed automático se a tabela estiver vazia
-    if (!data || data.length === 0) {
-      const { data: inseridos } = await supabase
+    setErroCarga(false);
+    try {
+      const { data, error } = await supabase
         .from("programacao_eventos")
-        .insert(SEMENTES)
-        .select();
-      setEventos((inseridos || []) as Evento[]);
-    } else {
-      setEventos(data as Evento[]);
+        .select("*")
+        .order("inicio");
+
+      if (error) {
+        console.error("Erro carregando eventos:", error);
+        setErroCarga(true);
+        setCarregando(false);
+        return;
+      }
+
+      // Seed automático se a tabela estiver vazia
+      if (!data || data.length === 0) {
+        const { data: inseridos } = await supabase
+          .from("programacao_eventos")
+          .insert(SEMENTES)
+          .select();
+        setEventos((inseridos || []) as Evento[]);
+      } else {
+        setEventos(data as Evento[]);
+      }
+    } catch (e) {
+      console.error("Falha ao conectar ao banco:", e);
+      setErroCarga(true);
     }
     setCarregando(false);
   }
@@ -547,6 +555,22 @@ export default function ProgramacaoPage() {
 
           {carregando ? (
             <div style={{ textAlign: "center", padding: "60px 0", color: "#9ca3af" }}><p>Carregando programação...</p></div>
+          ) : erroCarga ? (
+            <div style={{ textAlign: "center", padding: "60px 20px", color: "#6b7280" }}>
+              <p style={{ fontSize: 40, margin: 0 }}>⏸️</p>
+              <p style={{ fontWeight: 800, marginTop: 12, fontSize: 18, color: "#172033" }}>
+                Serviço temporariamente indisponível
+              </p>
+              <p style={{ marginTop: 8, maxWidth: 480, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+                Não foi possível carregar a programação. Tente novamente em alguns instantes.
+              </p>
+              <button
+                onClick={carregar}
+                style={{ marginTop: 18, background: "#173d5c", color: "white", border: 0, borderRadius: 999, padding: "10px 22px", fontWeight: 800, fontSize: 14, cursor: "pointer" }}
+              >
+                Tentar novamente
+              </button>
+            </div>
           ) : eventosFiltrados.length === 0 ? (
             <div style={{ textAlign: "center", padding: "60px 0", color: "#9ca3af" }}>
               <p style={{ fontSize: 32 }}>🔎</p>

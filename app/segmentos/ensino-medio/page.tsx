@@ -34,7 +34,26 @@ export default async function EnsinoMedioPage({ searchParams }: PageProps) {
     .order("sigla", { ascending: true });
 
   if (error) {
-    return <main style={{ padding: 40 }}>Erro: {error.message}</main>;
+    return (
+      <main style={{ minHeight: "100vh", background: "#f7f4ef", color: "#172033", padding: "60px 20px" }}>
+        <div style={{ maxWidth: 560, margin: "0 auto", background: "white", border: "1px solid #d8c7a1", borderRadius: 24, padding: "36px 32px", boxShadow: "0 12px 36px rgba(0,0,0,0.10)", textAlign: "center" }}>
+          <span style={{ fontSize: 48 }}>⏸️</span>
+          <h1 style={{ margin: "16px 0 8px", fontSize: 24, fontWeight: 800 }}>
+            Serviço temporariamente indisponível
+          </h1>
+          <p style={{ margin: "0 auto 20px", maxWidth: 440, color: "#6b7280", lineHeight: 1.6 }}>
+            Não foi possível carregar os itinerários no momento. Tente novamente
+            em alguns instantes — a página deve voltar assim que a manutenção terminar.
+          </p>
+          <Link
+            href="/"
+            style={{ display: "inline-block", background: "#173d5c", color: "white", borderRadius: 999, padding: "10px 22px", textDecoration: "none", fontWeight: 800, fontSize: 14 }}
+          >
+            ← Voltar para a página inicial
+          </Link>
+        </div>
+      </main>
+    );
   }
 
   const filtrados = itinerarios?.filter((item) => {
