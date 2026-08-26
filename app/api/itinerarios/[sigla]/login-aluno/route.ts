@@ -25,7 +25,7 @@ export async function POST(
     return Response.json({ erro: "Área do aluno não configurada para este itinerário." }, { status: 403 });
   }
 
-  if (data.senha_alunos !== senha.trim()) {
+  if ((data.senha_alunos || "").trim().toLowerCase() !== senha.trim().toLowerCase()) {
     return Response.json({ erro: "Senha incorreta. Verifique com seu professor." }, { status: 401 });
   }
 

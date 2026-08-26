@@ -21,7 +21,7 @@ export async function POST(
     return Response.json({ erro: "Área não configurada para esta turma." }, { status: 404 });
   }
 
-  if (data.senha !== senha.trim()) {
+  if ((data.senha || "").trim().toLowerCase() !== senha.trim().toLowerCase()) {
     return Response.json({ erro: "Senha incorreta. Verifique com seu professor." }, { status: 401 });
   }
 
