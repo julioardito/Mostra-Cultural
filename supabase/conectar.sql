@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS public.conectar_alunos (
   aparecer      BOOLEAN NOT NULL DEFAULT TRUE,
   criado_em     TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+-- Quem rodou a primeira versão deste script tem a tabela sem a coluna "ano".
+ALTER TABLE public.conectar_alunos ADD COLUMN IF NOT EXISTS ano TEXT NOT NULL DEFAULT '';
 CREATE INDEX IF NOT EXISTS conectar_alunos_ano_idx ON public.conectar_alunos (ano);
 
 CREATE TABLE IF NOT EXISTS public.conectar_pais (
@@ -187,3 +189,6 @@ GRANT EXECUTE ON FUNCTION public.conectar_dados(TEXT)              TO anon, auth
 GRANT EXECUTE ON FUNCTION public.conectar_salvar_aluno(JSONB)      TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.conectar_salvar_pais(JSONB)       TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.conectar_apagar_aluno(TEXT, UUID) TO anon, authenticated;
+
+-- Faz a API do Supabase enxergar as funções novas na hora.
+NOTIFY pgrst, 'reload schema';
