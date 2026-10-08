@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const anos = [
-  { num: "6", titulo: "6º Ano", cor: "#2563eb", turmas: ["A", "B"] },
-  { num: "7", titulo: "7º Ano", cor: "#059669", turmas: ["A", "B", "C"] },
-  { num: "8", titulo: "8º Ano", cor: "#d97706", turmas: ["A", "B", "C", "D"] },
-  { num: "9", titulo: "9º Ano", cor: "#7c3aed", turmas: ["A", "B", "C", "D"] },
+  { num: "6", titulo: "6º Ano", cor: "#2563eb", turmas: ["A", "B"], conectar: false },
+  { num: "7", titulo: "7º Ano", cor: "#059669", turmas: ["A", "B", "C"], conectar: true },
+  { num: "8", titulo: "8º Ano", cor: "#d97706", turmas: ["A", "B", "C", "D"], conectar: true },
+  { num: "9", titulo: "9º Ano", cor: "#7c3aed", turmas: ["A", "B", "C", "D"], conectar: true },
 ];
 
 export default function FundamentalAnosFinaisPage() {
@@ -187,6 +187,55 @@ export default function FundamentalAnosFinaisPage() {
                   </Link>
                 ))}
               </div>
+
+              {/* Ação CONECTAR — questionário de afinidades da série */}
+              {ano.conectar && (
+                <Link
+                  href={`/segmentos/fundamental-2/conectar/${ano.num}-ano/aluno`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 14,
+                    marginTop: 18,
+                    padding: "14px 16px",
+                    borderRadius: 16,
+                    border: `1.5px dashed ${ano.cor}`,
+                    background: "#fbf9f5",
+                    color: "#172033",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      flexShrink: 0,
+                      width: 40,
+                      height: 40,
+                      borderRadius: "50%",
+                      background: ano.cor,
+                      color: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 20,
+                      fontWeight: 800,
+                    }}
+                  >
+                    ✦
+                  </span>
+                  <span style={{ flex: 1 }}>
+                    <span style={{ display: "block", fontWeight: 800, fontSize: 15 }}>
+                      CONECTAR — questionário de afinidades
+                    </span>
+                    <span style={{ display: "block", fontSize: 13, color: "#6b7280", marginTop: 2 }}>
+                      Conte suas curiosidades e descubra, na Mostra, colegas com interesses parecidos.
+                    </span>
+                  </span>
+                  <span aria-hidden="true" style={{ color: ano.cor, fontWeight: 800, fontSize: 18 }}>
+                    →
+                  </span>
+                </Link>
+              )}
             </div>
           ))}
         </div>

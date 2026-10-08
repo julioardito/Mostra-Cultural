@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# respostas do CONECTAR em modo local (dados de alunos — nunca vão para o git)
+/data/
