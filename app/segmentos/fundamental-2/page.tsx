@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const anos = [
-  { num: "6", titulo: "6º Ano", cor: "#2563eb", turmas: ["A", "B"], conectar: false },
+  { num: "6", titulo: "6º Ano", cor: "#2563eb", turmas: ["A", "B"], conectar: true },
   { num: "7", titulo: "7º Ano", cor: "#059669", turmas: ["A", "B", "C"], conectar: true },
   { num: "8", titulo: "8º Ano", cor: "#d97706", turmas: ["A", "B", "C", "D"], conectar: true },
   { num: "9", titulo: "9º Ano", cor: "#7c3aed", turmas: ["A", "B", "C", "D"], conectar: true },

@@ -1,5 +1,5 @@
 -- ==============================================================
--- CONECTAR — estação de afinidades do 7º, 8º e 9º ano
+-- CONECTAR — estação de afinidades do 6º ao 9º ano
 -- ==============================================================
 -- Como aplicar:
 --   1. TROQUE o PIN na linha marcada com  >>>  (logo abaixo).
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS public.conectar_alunos (
   chave         TEXT NOT NULL UNIQUE,          -- "7º A|nome normalizado" (1 resposta por aluno)
   nome          TEXT NOT NULL,
   turma         TEXT NOT NULL,
-  ano           TEXT NOT NULL,                 -- "7-ano", "8-ano", "9-ano"
+  ano           TEXT NOT NULL,                 -- "6-ano", "7-ano", "8-ano", "9-ano"
   interesses    JSONB NOT NULL DEFAULT '{}'::jsonb,
   viagem        TEXT NOT NULL DEFAULT '',
   posso_ensinar TEXT NOT NULL DEFAULT '',
