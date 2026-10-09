@@ -1,18 +1,18 @@
 # Estação CONECTAR — guia rápido
 
-Questionário de afinidades do 7º, 8º e 9º ano, dentro dos Anos Finais do site
+Questionário de afinidades do 6º ao 9º ano, dentro dos Anos Finais do site
 da Mostra. Endereço curto para divulgar: **mostracultural2026.com.br/conectar**
 
 | Tela | Endereço | Quem usa |
 | --- | --- | --- |
 | Início do CONECTAR | `/segmentos/fundamental-2/conectar` | Todos |
-| Questionário do aluno | `/segmentos/fundamental-2/conectar/7-ano/aluno` (ou `8-ano`, `9-ano`) | Alunos, **antes** da Mostra |
-| Estação de busca | `/segmentos/fundamental-2/conectar/7-ano/estacao` (ou `8-ano`, `9-ano`) | Computadores no dia |
+| Questionário do aluno | `/segmentos/fundamental-2/conectar/7-ano/aluno` (ou `6-ano`, `8-ano`, `9-ano`) | Alunos, **antes** da Mostra |
+| Estação de busca | `/segmentos/fundamental-2/conectar/7-ano/estacao` (ou `6-ano`, `8-ano`, `9-ano`) | Computadores no dia |
 | Formulário dos pais | `/segmentos/fundamental-2/conectar/pais` | Famílias no dia |
 | Painel dos professores | `/segmentos/fundamental-2/conectar/painel` | Professores (PIN) |
 
 Cada série tem sua estação: um aluno do 8º ano só recebe indicações do 8º ano.
-O questionário também aparece como botão nos cartões do 7º, 8º e 9º ano da
+O questionário também aparece como botão nos cartões do 6º, 7º, 8º e 9º ano da
 página dos Anos Finais.
 
 Código: `lib/conectar/` (perguntas, motor de afinidades, armazenamento) e

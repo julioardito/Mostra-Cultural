@@ -171,6 +171,9 @@
   font-weight: 700;
 }
 
+.cx-cards-anos {
+  grid-template-columns: repeat(4, 1fr);
+}
 .cx-card-ano {
   border-top: 6px solid var(--ano);
 }
@@ -183,8 +186,9 @@
 .cx-card-ano .cx-btn-ano {
   margin-top: 6px;
   background: var(--ano);
-  font-size: 16px;
-  padding: 12px 18px;
+  font-size: 15px;
+  padding: 11px 12px;
+  white-space: nowrap;
 }
 .cx-card-ano .cx-btn-ano:hover:not(:disabled) {
   background: color-mix(in srgb, var(--ano) 85%, black);
@@ -805,7 +809,14 @@ textarea.cx-input {
 
 /* ---------- Telas pequenas ---------- */
 
+@media (max-width: 960px) {
+  .cx-cards-anos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 760px) {
+  .cx-cards-anos,
   .cx-cards,
   .cx-campos {
     grid-template-columns: 1fr;

@@ -1,5 +1,5 @@
 -- ==============================================================
--- CONECTAR — estação de afinidades do 7º, 8º e 9º ano
+-- CONECTAR — estação de afinidades do 6º ao 9º ano
 -- ==============================================================
 -- Como aplicar:
 --   1. TROQUE o PIN na linha marcada com  >>>  (logo abaixo).
@@ -27,13 +27,15 @@ CREATE TABLE IF NOT EXISTS public.conectar_alunos (
   chave         TEXT NOT NULL UNIQUE,          -- "7º A|nome normalizado" (1 resposta por aluno)
   nome          TEXT NOT NULL,
   turma         TEXT NOT NULL,
-  ano           TEXT NOT NULL,                 -- "7-ano", "8-ano", "9-ano"
+  ano           TEXT NOT NULL,                 -- "6-ano", "7-ano", "8-ano", "9-ano"
   interesses    JSONB NOT NULL DEFAULT '{}'::jsonb,
   viagem        TEXT NOT NULL DEFAULT '',
   posso_ensinar TEXT NOT NULL DEFAULT '',
   aparecer      BOOLEAN NOT NULL DEFAULT TRUE,
   criado_em     TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+-- Quem rodou a primeira versão deste script tem a tabela sem a coluna "ano".
+ALTER TABLE public.conectar_alunos ADD COLUMN IF NOT EXISTS ano TEXT NOT NULL DEFAULT '';
 CREATE INDEX IF NOT EXISTS conectar_alunos_ano_idx ON public.conectar_alunos (ano);
 
 CREATE TABLE IF NOT EXISTS public.conectar_pais (
@@ -187,3 +189,6 @@ GRANT EXECUTE ON FUNCTION public.conectar_dados(TEXT)              TO anon, auth
 GRANT EXECUTE ON FUNCTION public.conectar_salvar_aluno(JSONB)      TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.conectar_salvar_pais(JSONB)       TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.conectar_apagar_aluno(TEXT, UUID) TO anon, authenticated;
+
+-- Faz a API do Supabase enxergar as funções novas na hora.
+NOTIFY pgrst, 'reload schema';

@@ -1,5 +1,5 @@
 /*
- * CONECTAR — perguntas do formulário dos alunos (7º, 8º e 9º ano)
+ * CONECTAR — perguntas do formulário dos alunos (6º ao 9º ano)
  * --------------------------------------------------------------------------
  * Fonte única: o formulário, o motor de afinidades e as frases de explicação
  * leem daqui. Para mudar uma opção, mude só aqui.
@@ -18,6 +18,7 @@
  * um aluno do 8º ano só recebe indicações de colegas do 8º ano.
  */
 export const ANOS = [
+  { id: "6-ano", nome: "6º ano", cor: "#2563eb", turmas: ["6º A", "6º B"] },
   { id: "7-ano", nome: "7º ano", cor: "#059669", turmas: ["7º A", "7º B", "7º C"] },
   { id: "8-ano", nome: "8º ano", cor: "#d97706", turmas: ["8º A", "8º B", "8º C", "8º D"] },
   { id: "9-ano", nome: "9º ano", cor: "#7c3aed", turmas: ["9º A", "9º B", "9º C", "9º D"] },
@@ -66,6 +67,7 @@ export const CATEGORIAS: Categoria[] = [
     conversa: (x) => `Se vocês pudessem visitar ${x} por um dia, o que iriam querer ver primeiro?`,
     itens: [
       "pré-história e dinossauros",
+      "Mesopotâmia",
       "Egito Antigo",
       "Grécia Antiga",
       "Roma Antiga",
@@ -264,7 +266,7 @@ export type RespostaAluno = {
   id: string;
   nome: string;
   turma: string;
-  /** "7-ano", "8-ano" ou "9-ano" — derivado da turma. */
+  /** "6-ano" a "9-ano" — derivado da turma. */
   ano: string;
   /** categoria.id -> itens escolhidos */
   interesses: Record<string, string[]>;

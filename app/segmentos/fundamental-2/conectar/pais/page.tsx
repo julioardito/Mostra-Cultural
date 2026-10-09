@@ -98,7 +98,7 @@ export default function FormularioPais() {
       </p>
       <h1 className="cx-title">E na sua época de escola?</h1>
       <p className="cx-lead">
-        Os alunos do 7º, 8º e 9º ano contaram o que desperta a curiosidade deles. Agora é a sua vez: o que
+        Os alunos do 6º ao 9º ano contaram o que desperta a curiosidade deles. Agora é a sua vez: o que
         você curtia na idade deles? Se informar o nome do seu filho ou filha, mostramos o que vocês
         têm em comum.
       </p>

@@ -12,7 +12,7 @@ export default function ConectarHub() {
 
       <header className="cx-hero">
         <div>
-          <p className="cx-eyebrow">Anos Finais · 7º, 8º e 9º ano</p>
+          <p className="cx-eyebrow">Anos Finais · 6º ao 9º ano</p>
           <h1 className="cx-title">CONECTAR</h1>
           <p className="cx-lead">
             Uma estação que cruza as curiosidades dos alunos e sugere conversas e encontros
@@ -23,17 +23,17 @@ export default function ConectarHub() {
         <Constelacao />
       </header>
 
-      <div className="cx-cards">
+      <div className="cx-cards cx-cards-anos">
         {ANOS.map((ano) => (
           <section key={ano.id} className="cx-card cx-card-ano" style={{ ["--ano" as string]: ano.cor }}>
             <span className="cx-card-tag">{ano.turmas.join(" · ")}</span>
             <h2>{ano.nome}</h2>
-            <p>Cada série tem sua estação: as indicações são sempre de colegas da mesma série.</p>
+            <p>Indicações sempre de colegas da mesma série.</p>
             <Link href={`${BASE}/${ano.id}/aluno`} className="cx-btn cx-btn-ano">
               Responder questionário
             </Link>
             <Link href={`${BASE}/${ano.id}/estacao`} className="cx-card-go">
-              Estação do dia da Mostra →
+              Estação do dia →
             </Link>
           </section>
         ))}
