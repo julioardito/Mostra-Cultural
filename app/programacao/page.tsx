@@ -525,8 +525,11 @@ export default function ProgramacaoPage() {
           <p style={{ margin: "0 0 4px", color: "#a6782a", fontSize: 13, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase" }}>Espaços</p>
           <h2 className="text-2xl sm:text-3xl" style={{ margin: "0 0 20px", fontWeight: 800 }}>Mapa do Colégio Benjamin Constant</h2>
           <div style={{ background: "#f7f4ef", borderRadius: 16, padding: "16px", display: "flex", justifyContent: "center" }}>
-            <img src="/mapa-escola.png" alt="Mapa do Colégio Benjamin Constant" style={{ width: "100%", maxWidth: 860, height: "auto", borderRadius: 12, border: "1px solid #d8c7a1" }} />
+            <a href="/mapa-escola.jpg" target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%", maxWidth: 1240 }}>
+              <img src="/mapa-escola.jpg" alt="Mapa da Mostra Cultural 2026 no Colégio Benjamin Constant" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid #d8c7a1", display: "block" }} />
+            </a>
           </div>
+          <p style={{ margin: "10px 0 0", fontSize: 13, color: "#6b7280", textAlign: "center" }}>Toque no mapa para abrir em tamanho maior.</p>
         </div>
 
         <div style={{ background: "white", border: "1px solid #d8c7a1", borderRadius: 24, padding: "24px", boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}>
