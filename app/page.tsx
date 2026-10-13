@@ -32,11 +32,12 @@ export default function Home() {
               Colégio Benjamin Constant
             </p>
 
-            <h1
-              className="text-3xl sm:text-5xl"
-              style={{ margin: "10px 0 0", lineHeight: 1.05, color: "#111827", fontWeight: 800, textAlign: "center" }}
-            >
-              Mostra Cultural e de Itinerários Formativos 2026
+            <h1 style={{ margin: "10px 0 0" }}>
+              <img
+                src="/mostra/logo-mostra-cultural.png"
+                alt="Mostra Cultural e de Itinerários Formativos 2026"
+                style={{ width: "100%", maxWidth: 480, height: "auto", display: "block", margin: "0 auto" }}
+              />
             </h1>
           </div>
 

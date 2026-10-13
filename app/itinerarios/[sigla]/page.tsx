@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase/client";
+import { destaques } from "@/lib/mostra/destaques";
 
 type Props = {
   params: Promise<{ sigla: string }>;
@@ -17,6 +18,8 @@ export default async function ItinerarioPage({ params }: Props) {
   if (error || !itinerario) {
     return <main style={{ padding: 40 }}>Itinerário não encontrado.</main>;
   }
+
+  const destaque = destaques[itinerario.sigla];
 
   return (
     <main style={{ minHeight: "100vh", background: "#f7f4ef", color: "#172033" }}>
@@ -191,6 +194,58 @@ export default async function ItinerarioPage({ params }: Props) {
                 {itinerario.descricao_mostra || itinerario.descricao}
               </p>
             </div>
+
+            {destaque && (
+              <div
+                className="sm:col-span-2"
+                style={{ background: "white", border: "1px solid #d8c7a1", borderRadius: 22, padding: "20px 22px" }}
+              >
+                <p style={labelStyle}>Na Mostra Cultural</p>
+                <h2 className="text-xl sm:text-2xl" style={cardTitleStyle}>{destaque.titulo}</h2>
+                <p className="text-sm sm:text-lg" style={{ lineHeight: 1.7, color: "#374151", margin: "0 0 20px" }}>
+                  {destaque.texto}
+                </p>
+
+                {destaque.empresas && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                    {destaque.empresas.map((empresa) => (
+                      <figure key={empresa.nome} style={{ margin: 0, textAlign: "center" }}>
+                        <img
+                          src={empresa.logo}
+                          alt={`Logo: ${empresa.nome}`}
+                          style={{ width: "100%", aspectRatio: "1", objectFit: "cover", borderRadius: 16, border: "1px solid #e5dccb", display: "block" }}
+                        />
+                        <figcaption style={{ marginTop: 10 }}>
+                          <strong style={{ display: "block", fontSize: 15, color: "#172033" }}>{empresa.nome}</strong>
+                          {empresa.descricao && (
+                            <span style={{ fontSize: 13, color: "#6b7280" }}>{empresa.descricao}</span>
+                          )}
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                )}
+
+                {destaque.galeria && (
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" style={{ marginTop: 24 }}>
+                    {destaque.galeria.map((foto) => (
+                      <a key={foto.src} href={foto.src} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                        <figure style={{ margin: 0 }}>
+                          <img
+                            src={foto.src}
+                            alt={foto.legenda}
+                            style={{ width: "100%", height: "auto", borderRadius: 16, border: "1px solid #e5dccb", display: "block" }}
+                          />
+                          <figcaption style={{ marginTop: 8, fontSize: 14, color: "#4b5563", textAlign: "center" }}>
+                            {foto.legenda}
+                          </figcaption>
+                        </figure>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
 
             <div
               className="sm:col-span-2"
