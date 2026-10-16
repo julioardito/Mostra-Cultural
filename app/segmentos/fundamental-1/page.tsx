@@ -79,6 +79,97 @@ export default function FundamentalAnosIniciaisPage() {
           </div>
         </div>
 
+        {/* Projeto "Sabores que Nutrem e Transformam" — 1º e 2º anos */}
+        <article
+          style={{
+            background: "white",
+            border: "1px solid #d8c7a1",
+            borderRadius: 24,
+            padding: "28px 28px 32px",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+            marginBottom: 32,
+          }}
+        >
+          <p style={{ margin: 0, color: "#a6782a", fontSize: 13, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase" }}>
+            Projeto dos 1º e 2º anos
+          </p>
+          <h2
+            className="text-2xl sm:text-4xl"
+            style={{ margin: "8px 0 6px", fontWeight: 800, lineHeight: 1.1, color: "#172033" }}
+          >
+            Sabores que Nutrem e Transformam
+          </h2>
+          <p style={{ margin: 0, fontSize: 16, color: "#4b5563", lineHeight: 1.55, fontStyle: "italic" }}>
+            Pequenas escolhas, grandes transformações!
+          </p>
+
+          <div style={{ marginTop: 20, display: "grid", gap: 14 }}>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.7, color: "#374151" }}>
+              Você já parou para pensar em quantas descobertas cabem em um alimento?
+            </p>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.7, color: "#374151" }}>
+              Foi a partir dessa curiosidade que os alunos dos <strong>1º e 2º anos</strong> embarcaram
+              no projeto <strong>“Sabores que Nutrem e Transformam”</strong>, explorando o universo
+              da alimentação por meio de histórias, pesquisas, conversas e experiências práticas.
+            </p>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.7, color: "#374151" }}>
+              Ao longo dessa jornada, as crianças descobriram que os alimentos nutrem o corpo,
+              que nossas escolhas influenciam a saúde e que até aquilo que parece não ter mais
+              utilidade pode ganhar um novo destino.
+            </p>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.7, color: "#374151" }}>
+              Entre descobertas e experimentações, refletimos sobre{" "}
+              <strong>alimentação saudável, aproveitamento dos alimentos e redução do
+              desperdício</strong>, ampliando nosso olhar para o cuidado com o meio ambiente.
+            </p>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.7, color: "#374151" }}>
+              Afinal, aprender a se alimentar também é aprender a escolher, cuidar e
+              transformar! E são essas pequenas descobertas, levadas para além da escola, que
+              podem inspirar grandes mudanças.
+            </p>
+          </div>
+
+          <div style={{ marginTop: 22 }}>
+            <p style={{ margin: 0, color: "#a6782a", fontSize: 12, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+              Vivências do projeto
+            </p>
+            <ul
+              style={{
+                margin: "10px 0 0",
+                padding: 0,
+                listStyle: "none",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                gap: 10,
+              }}
+            >
+              {[
+                "Construção do semáforo",
+                "Palestra com a Dra. Priscila Teivelis",
+                "Confecção do mascote",
+                "Piquenique",
+                "De onde vêm os alimentos?",
+                "Reaproveitamento de alimentos",
+              ].map((item) => (
+                <li
+                  key={item}
+                  style={{
+                    padding: "10px 14px",
+                    background: "#fbf9f5",
+                    border: "1px solid #efe4c9",
+                    borderRadius: 12,
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: "#172033",
+                  }}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+
         {/* 3º, 4º e 5º anos */}
         <div style={{ marginBottom: 32 }}>
           <div style={{ marginBottom: 16 }}>
