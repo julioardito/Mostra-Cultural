@@ -43,8 +43,10 @@ export default function AreaAcesso({ codigo, nome, tipo, voltarHref, voltarLabel
   useEffect(() => {
     if (sessionStorage.getItem(SESSAO_KEY) === "ok") {
       setAutenticado(true);
-      carregarProjeto();
     }
+    // Carrega o projeto da turma (leitura pública) para exibir
+    // o quadro "Projeto da turma" antes mesmo do login.
+    carregarProjeto();
     setIniciando(false);
   }, [codigo]);
 
@@ -137,13 +139,85 @@ export default function AreaAcesso({ codigo, nome, tipo, voltarHref, voltarLabel
 
   // ── Tela de login ─────────────────────────────────────────
   if (!autenticado) {
-    return (
-      <main style={{ minHeight: "100vh", background: "#f7f4ef", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 16px" }}>
-        <Link href={voltarHref} style={{ color: "#173d5c", fontWeight: 700, textDecoration: "none", alignSelf: "flex-start", maxWidth: 420, width: "100%", marginBottom: 24 }}>
-          ← {voltarLabel}
-        </Link>
+    const temProjetoPublico =
+      projetoOriginal &&
+      (projetoOriginal.titulo || projetoOriginal.integrantes ||
+       projetoOriginal.descricao || projetoOriginal.link_portfolio);
 
-        <div style={{ background: "white", border: "1px solid #d8c7a1", borderRadius: 24, padding: "36px 32px", width: "100%", maxWidth: 420, boxShadow: "0 12px 36px rgba(0,0,0,0.10)" }}>
+    return (
+      <main style={{ minHeight: "100vh", background: "#f7f4ef", padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div style={{ width: "100%", maxWidth: temProjetoPublico ? 820 : 420 }}>
+          <Link href={voltarHref} style={{ color: "#173d5c", fontWeight: 700, textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
+            ← {voltarLabel}
+          </Link>
+
+          {temProjetoPublico && (
+            <section
+              style={{
+                background: "white",
+                border: "1px solid #d8c7a1",
+                borderRadius: 24,
+                padding: "28px 28px 32px",
+                boxShadow: "0 12px 36px rgba(0,0,0,0.08)",
+                marginBottom: 24,
+              }}
+            >
+              <p style={{ margin: 0, color: "#a6782a", fontSize: 12, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase" }}>
+                Projeto da turma
+              </p>
+              <h2 style={{ margin: "10px 0 6px", fontSize: 24, fontWeight: 800, color: "#172033", lineHeight: 1.2 }}>
+                {projetoOriginal!.titulo || nome}
+              </h2>
+              <p style={{ margin: 0, fontSize: 13, color: "#6b7280", fontWeight: 600 }}>{nome}</p>
+
+              {projetoOriginal!.integrantes && (
+                <div style={{ marginTop: 20 }}>
+                  <p style={{ margin: 0, color: "#a6782a", fontSize: 11, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                    Integrantes
+                  </p>
+                  <p style={{ margin: "6px 0 0", fontSize: 15, lineHeight: 1.55, color: "#374151" }}>
+                    {projetoOriginal!.integrantes}
+                  </p>
+                </div>
+              )}
+
+              {projetoOriginal!.descricao && (
+                <div style={{ marginTop: 20 }}>
+                  <p style={{ margin: 0, color: "#a6782a", fontSize: 11, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                    Sobre o projeto
+                  </p>
+                  <p style={{ margin: "6px 0 0", fontSize: 15, lineHeight: 1.65, color: "#374151", whiteSpace: "pre-wrap" }}>
+                    {projetoOriginal!.descricao}
+                  </p>
+                </div>
+              )}
+
+              {projetoOriginal!.link_portfolio && (
+                <div style={{ marginTop: 22 }}>
+                  <a
+                    href={projetoOriginal!.link_portfolio}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-block",
+                      background: "#173d5c",
+                      color: "white",
+                      borderRadius: 999,
+                      padding: "10px 22px",
+                      textDecoration: "none",
+                      fontWeight: 800,
+                      fontSize: 14,
+                    }}
+                  >
+                    Abrir portfólio / apresentação ↗
+                  </a>
+                </div>
+              )}
+            </section>
+          )}
+
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ background: "white", border: "1px solid #d8c7a1", borderRadius: 24, padding: "36px 32px", width: "100%", maxWidth: 420, boxShadow: "0 12px 36px rgba(0,0,0,0.10)" }}>
           <div style={{ textAlign: "center", marginBottom: 28 }}>
             <img src="/logo-benjamin.png" alt="Logo" style={{ width: 72, height: "auto", margin: "0 auto 16px", display: "block" }} />
             <p style={{ margin: 0, color: "#a6782a", fontSize: 12, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase" }}>
@@ -188,6 +262,8 @@ export default function AreaAcesso({ codigo, nome, tipo, voltarHref, voltarLabel
               {carregandoLogin ? "Entrando..." : "Entrar"}
             </button>
           </form>
+            </div>
+          </div>
         </div>
       </main>
     );
